@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">"WSA Login "</string>
+    <string name="signup_prog">Registering</string>
+    <string name="login_prog">Logging In</string>
+    <string name="error_txt">Error!</string>
+    <string name="json_ext">Something went wrong, Try again.</string>
+    <string name="bad_request">A bad request, report this</string>
+    <string name="server_error">Something wrong with the servers. Please try again</string>
+    <string name="bad_credentials">Your passoword or email is wrong</string>
+    <string name="connection_error">Connection failed. Try again</string>
+</resources>
