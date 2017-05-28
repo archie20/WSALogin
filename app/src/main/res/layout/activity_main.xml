@@ -1,55 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#FFFFFF"
-    tools:context="com.nana.wsalogin.MainActivity">
+    android:background="@drawable/blur_bg"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linlay"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:layout_centerInParent="true">
-
-    </LinearLayout>
-    <LinearLayout
-       android:layout_below="@+id/linlay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-   <Button
-       android:id="@+id/login_button"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       style="?android:attr/borderlessButtonStyle"
-       android:text="Login"
-       android:textColor="@color/colorPrimary"/>
-    <Button
-        android:id="@+id/sig_up_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:attr/borderlessButtonStyle"
-        android:text="Sign Up"
-        android:textColor="@color/colorAccent"/>
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/name_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="#FFFFFFFF"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp" />
+    tools:context="com.nana.wsalogin.LoginActivity">
 
     <EditText
         android:layout_marginTop="39dp"
@@ -60,8 +21,8 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:hint="Email"
-        android:layout_below="@+id/name_text"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center_horizontal"
+        />
 
     <EditText
         android:background="#FFFFFFFF"
@@ -71,8 +32,15 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="password"
-        android:layout_below="@+id/email_text"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="36dp" />
-</RelativeLayout>
+        android:layout_marginTop="36dp"
+        android:layout_gravity="center_horizontal"/>
+    <Button
+        android:layout_marginTop="36dp"
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Login"
+        android:textColor="@color/temp"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

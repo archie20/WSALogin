@@ -8,4 +8,7 @@
     <string name="server_error">Something wrong with the servers. Please try again</string>
     <string name="bad_credentials">Your passoword or email is wrong</string>
     <string name="connection_error">Connection failed. Try again</string>
+    <string name="off_pump_txt">Are you sure you want to TURN OFF the pump?</string>
+    <string name="on_pump_txt">Are you sure you wan to TURN ON the pump?</string>
+    <string name="no_activate">System not Activated!, Activate from Web Console</string>
 </resources>

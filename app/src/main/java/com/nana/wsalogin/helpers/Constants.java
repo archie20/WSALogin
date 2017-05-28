@@ -5,7 +5,7 @@ package com.nana.wsalogin.helpers;
  */
 
 public class Constants{
-    public static final String TOKEN ="token";
+    public static final String API_TOKEN ="api_token";
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
     public static final String NAME = "name";

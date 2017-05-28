@@ -2,13 +2,11 @@ package com.nana.wsalogin;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.os.AsyncTask;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,22 +25,11 @@ import com.nana.wsalogin.helpers.VolleySingleton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailET,passwordET,nameET;
-    Button loginBtn,signUpBtn;
+    Button loginBtn;
     private static final int LOGIN =1;
     private static final int SIGNUP=2;
     private int loginType=0;
@@ -60,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        nameET = (EditText) findViewById(R.id.name_text);
+
         emailET = (EditText) findViewById(R.id.email_text);
         passwordET = (EditText) findViewById(R.id.password_text);
          loginBtn = (Button) findViewById(R.id.login_button);
@@ -68,14 +55,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginType=LOGIN;
-                loginSignUp();
-            }
-        });
-        signUpBtn = (Button) findViewById(R.id.sig_up_button);
-        signUpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginType=SIGNUP;
                 loginSignUp();
             }
         });
@@ -96,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.setTitle(getString(R.string.signup_prog));
                 progressDialog.show();
                 jsonObject.put("name", nameET.getText().toString().trim());
-                url = ApiUrls.SIGNUP_URL;
+                url = "";
             }else{
                 progressDialog.setTitle(getString(R.string.login_prog));
                 progressDialog.show();
@@ -125,10 +104,11 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     String message = response.getString("message");
                     getSharedPreferences(Constants.SHARED_PREFS,MODE_PRIVATE).edit()
-                            .putString(Constants.TOKEN,response.getString("token"))
+                            .putString(Constants.API_TOKEN,response.getString("token"))
                             .apply();// Store the authentication api token for subsequent requests
 
-                    createErrorAlert("Success",message); //You can replace this by going to the next activity
+                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this,SystemsActivity.class));
                 } catch (JSONException e) {
                     createErrorAlert("Error","An error occurred. Please try again");
                     e.printStackTrace();
@@ -200,5 +180,5 @@ public class LoginActivity extends AppCompatActivity {
         });
         aDialog.show();
     }
-    
+
 }
